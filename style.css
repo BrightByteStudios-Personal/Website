@@ -1717,3 +1717,321 @@ html.theme-fade *::after {
     transform: none !important;
   }
 }
+
+
+/* ----------------------------------------------------------
+   PRICING CARDS (services page)
+   One card per package. Same feature rows in every card so they line up.
+   ---------------------------------------------------------- */
+.pricing {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 2.5px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: 6px 6px 0 var(--sh);
+  overflow: hidden;
+}
+
+.plan h3 {
+  margin: 0;
+  padding: 14px 20px;
+  color: #141a33;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 2.5px solid var(--line);
+}
+
+.plan-teal h3   { background: var(--brand); }
+.plan-yellow h3 { background: var(--pop); }
+.plan-coral h3  { background: var(--hot); }
+
+.plan .plan-price {
+  max-width: none;
+  margin: 0;
+  padding: 18px 20px 14px;
+  text-align: center;
+  color: var(--price);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.plan .plan-price small {
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  margin-right: 2px;
+}
+
+.plan ul {
+  list-style: none;
+  flex: 1;
+}
+
+.plan li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 20px;
+  font-size: 0.9rem;
+  border-top: 1px dashed color-mix(in srgb, var(--line) 40%, transparent);
+}
+
+.plan li:nth-child(odd) {
+  background: color-mix(in srgb, var(--ink) 4%, transparent);
+}
+
+.plan li::before {
+  content: "\2713";
+  flex: none;
+  width: 1.2em;
+  font-weight: 800;
+  color: var(--price);
+}
+
+.plan li strong {
+  font-weight: 800;
+}
+
+.plan li.no {
+  color: var(--muted);
+  opacity: 0.65;
+}
+
+.plan li.no::before {
+  content: "\2715";
+  color: var(--muted);
+}
+
+.plan .btn {
+  width: auto;
+  margin: 18px 20px 20px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (min-width: 760px) {
+  .pricing {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+.price-note {
+  max-width: none;
+  margin: 20px 0 0;
+  font-size: 0.85rem;
+}
+
+
+/* ----------------------------------------------------------
+   SERVICES + ABOUT ADDITIONS
+   Stacked service cards, "How we work" steps, FAQ, principles list.
+   ---------------------------------------------------------- */
+.gap-top {
+  margin-top: 48px;
+}
+
+/* Service cards stacked in one column, no tilt or tape */
+.grid.stack {
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.grid.stack > .card {
+  transform: none;
+}
+
+.grid.stack > .card::before {
+  display: none;
+}
+
+.service-list {
+  list-style: none;
+  margin: 16px 0 0;
+}
+
+.service-list li {
+  position: relative;
+  padding: 8px 0 8px 26px;
+  border-top: 1px dashed color-mix(in srgb, var(--line) 40%, transparent);
+  font-size: 0.9rem;
+}
+
+.service-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: var(--price);
+}
+
+/* How we work: numbered vertical list */
+.steps {
+  list-style: none;
+  counter-reset: step;
+  background: var(--card);
+  border: 2.5px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: 6px 6px 0 var(--sh);
+  overflow: hidden;
+}
+
+.steps li {
+  counter-increment: step;
+  display: flex;
+  gap: 16px;
+  padding: 18px 20px;
+  border-top: 2px dashed color-mix(in srgb, var(--line) 45%, transparent);
+}
+
+.steps li:first-child {
+  border-top: 0;
+}
+
+.steps li::before {
+  content: counter(step);
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--ink);
+  color: var(--bg);
+  font-weight: 800;
+  border-radius: 4px 14px 4px 14px;
+}
+
+.steps h3 {
+  margin-bottom: 2px;
+}
+
+.steps p {
+  max-width: none;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+/* FAQ */
+.faq {
+  display: grid;
+  gap: 12px;
+}
+
+.faq details {
+  background: var(--card);
+  border: 2.5px solid var(--line);
+  border-radius: 4px 14px 4px 14px;
+  box-shadow: 4px 4px 0 var(--sh);
+}
+
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--hot);
+}
+
+.faq details[open] summary::after {
+  content: "\2212";
+}
+
+.faq summary:focus-visible {
+  outline: 3px solid var(--hot);
+  outline-offset: 2px;
+}
+
+.faq details p {
+  max-width: none;
+  margin: 0;
+  padding: 0 18px 16px;
+}
+
+/* About page list on the home page */
+.principles {
+  list-style: none;
+  margin: 12px 0 24px;
+  border-left: 4px solid var(--pop);
+}
+
+.principles li {
+  padding: 10px 0 10px 18px;
+  color: var(--muted);
+}
+
+.principles strong {
+  display: block;
+  color: var(--ink);
+}
+
+@media (min-width: 820px) {
+  .grid.stack > .card {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    column-gap: 40px;
+    align-items: start;
+    padding: 28px 32px;
+  }
+
+  .grid.stack > .card h3,
+  .grid.stack > .card p {
+    grid-column: 1;
+  }
+
+  .grid.stack > .card .service-list {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin: 0;
+  }
+
+  .steps li {
+    padding: 20px 28px;
+    gap: 20px;
+  }
+}
+
+/* optional add-on rows in the package cards */
+.plan li.opt::before {
+  content: "+";
+  color: var(--link);
+}
+
+.plan .opt-tag {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

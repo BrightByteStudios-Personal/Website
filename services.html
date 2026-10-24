@@ -41,72 +41,182 @@
 
         <h1>Services</h1>
 
+        <p>Brightbyte Studio designs, builds and tests websites for small businesses, schools and startups. Every project follows the same clear process, and every package below has a fixed scope and a fixed price, so you know exactly what you are getting before we begin.</p>
+
         <!-- ===== SERVICE CARDS ===== -->
-        <div class="grid">
+        <h2 class="gap-top">What we do</h2>
+
+        <div class="grid stack">
           <div class="card">
             <h3>Web design</h3>
-            <p>Layouts, color and type for your brand.</p>
+            <p>Layouts, color and type for your brand, planned to stay clear and consistent on every screen size.</p>
+            <ul class="service-list">
+              <li>Page layouts planned for phone, tablet and desktop</li>
+              <li>Color palette and typography matched to your brand</li>
+              <li>Consistent navigation, buttons and spacing on every page</li>
+            </ul>
           </div>
 
           <div class="card">
             <h3>Development</h3>
-            <p>Multi-page sites in HTML, CSS and JavaScript.</p>
+            <p>Multi-page sites in HTML, CSS and JavaScript, hand-coded so they load quickly and are easy to update.</p>
+            <ul class="service-list">
+              <li>Hand-coded HTML, CSS and JavaScript</li>
+              <li>Contact form, gallery and pricing table, depending on the package</li>
+              <li>SEO basics: page titles, meta descriptions and image alt text</li>
+            </ul>
           </div>
 
           <div class="card">
             <h3>Testing</h3>
-            <p>Cross-browser and mobile checks.</p>
+            <p>Cross-browser and mobile checks on every page, link and form before anything is handed over.</p>
+            <ul class="service-list">
+              <li>Every link, form and page checked before launch</li>
+              <li>Layout checked on phone, tablet and desktop widths</li>
+              <li>Written cross-browser testing report (Premium)</li>
+            </ul>
           </div>
         </div>
+
+
+        <!-- ===== HOW WE WORK ===== -->
+        <h2 class="gap-top">How we work</h2>
+        <p>Each project moves through the same five steps, whichever package you choose.</p>
+
+        <ol class="steps">
+          <li>
+            <div>
+              <h3>Brief and planning</h3>
+              <p>You choose a package and send us your text, images and any brand colors or logo. We confirm the number of pages and the features before work starts.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Design</h3>
+              <p>We set up the page layouts, color palette and typography, so the structure and look of the site are clear before the code is written.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Development</h3>
+              <p>We build each page in HTML, CSS and JavaScript, with the contact form and the other features included in your package.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Testing</h3>
+              <p>We check every link, form and page in different browsers and on phone, tablet and desktop widths, and fix whatever we find.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Review and handover</h3>
+              <p>You review the site and send your changes as one list for each revision round in your package. Once you approve, we hand over the finished site.</p>
+            </div>
+          </li>
+        </ol>
 
 
         <!-- ===== PRICING TABLE =====
              id="packages" lets other pages link straight here
              (services.html#packages) -->
         <h2 id="packages" style="margin-top:48px">Packages</h2>
+        <p>Choose the package that matches the number of pages and the features you need. Each card lists exactly what is included and what is not.</p>
 
-        <div class="scroll">
-          <table>
-          
+        <div class="pricing">
+          <article class="plan plan-teal">
+            <h3>Starter</h3>
+            <p class="plan-price"><small>PHP</small> 5,000</p>
+            <ul>
+            <li><strong>Up to 3 pages</strong></li>
+            <li><strong>1 revision round</strong></li>
+            <li><strong>7-day delivery</strong></li>
+            <li>Responsive layout (phone, tablet, desktop)</li>
+            <li>Contact form</li>
+            <li class="no"><span class="sr-only">Not included: </span>Image gallery</li>
+            <li class="no"><span class="sr-only">Not included: </span>Pricing table</li>
+            <li class="no"><span class="sr-only">Not included: </span>SEO basics (titles, meta descriptions, alt text)</li>
+            <li class="no"><span class="sr-only">Not included: </span>Cross-browser testing report</li>
+            <li class="opt">Animations <span class="opt-tag">optional</span></li>
+            <li class="opt">Dark mode <span class="opt-tag">optional</span></li>
+            </ul>
+            <a class="btn" href="contact.html">Choose Starter</a>
+          </article>
 
-            <thead>
-              <tr>
-                <th>Package</th>
-                <th>Pages</th>
-                <th>Includes</th>
-                <th>Price</th>
-              </tr>
-            </thead>
+          <article class="plan plan-yellow">
+            <h3>Business</h3>
+            <p class="plan-price"><small>PHP</small> 12,000</p>
+            <ul>
+            <li><strong>Up to 6 pages</strong></li>
+            <li><strong>2 revision rounds</strong></li>
+            <li><strong>14-day delivery</strong></li>
+            <li>Responsive layout (phone, tablet, desktop)</li>
+            <li>Contact form</li>
+            <li>Image gallery</li>
+            <li>Pricing table</li>
+            <li>SEO basics (titles, meta descriptions, alt text)</li>
+            <li class="no"><span class="sr-only">Not included: </span>Cross-browser testing report</li>
+            <li class="opt">Animations <span class="opt-tag">optional</span></li>
+            <li class="opt">Dark mode <span class="opt-tag">optional</span></li>
+            </ul>
+            <a class="btn" href="contact.html">Choose Business</a>
+          </article>
 
-            <!-- To add a package, copy one <tr> row and change the text -->
-            <tbody>
-              <tr>
-                <td>Starter</td>
-                <td>1 to 3</td>
-                <td>Responsive layout, contact form</td>
-                <td>PHP 5,000</td>
-              </tr>
-
-              <tr>
-                <td>Business</td>
-                <td>Up to 6</td>
-                <td>Starter + gallery, pricing table, SEO basics</td>
-                <td>PHP 12,000</td>
-              </tr>
-
-              <tr>
-                <td>Premium</td>
-                <td>Up to 10</td>
-                <td>Business + animations, dark mode, testing report</td>
-                <td>PHP 20,000</td>
-              </tr>
-            </tbody>
-          </table>
+          <article class="plan plan-coral">
+            <h3>Premium</h3>
+            <p class="plan-price"><small>PHP</small> 20,000</p>
+            <ul>
+            <li><strong>Up to 10 pages</strong></li>
+            <li><strong>3 revision rounds</strong></li>
+            <li><strong>21-day delivery</strong></li>
+            <li>Responsive layout (phone, tablet, desktop)</li>
+            <li>Contact form</li>
+            <li>Image gallery</li>
+            <li>Pricing table</li>
+            <li>SEO basics (titles, meta descriptions, alt text)</li>
+            <li>Cross-browser testing report</li>
+            <li class="opt">Animations <span class="opt-tag">optional</span></li>
+            <li class="opt">Dark mode <span class="opt-tag">optional</span></li>
+            </ul>
+            <a class="btn" href="contact.html">Choose Premium</a>
+          </article>
         </div>
 
+        <p class="price-note">All prices are one-time fees in PHP. Domain name and hosting are not included. Delivery time counts from the day we receive your content (text and images). Animations and dark mode are optional add-ons available with every package; the add-on price is quoted on request.</p>
+
         <p style="margin-top:20px">
-          <a class="btn" href="contact.html">Request a quote</a>
+          <a class="btn alt" href="contact.html">Request a custom quote</a>
         </p>
+
+        <!-- ===== FAQ ===== -->
+        <h2 class="gap-top">Common questions</h2>
+
+        <div class="faq">
+          <details>
+            <summary>What is not included in the prices?</summary>
+            <p>All prices are one-time fees in PHP. The domain name and hosting are not included. Contact us and we can go over your options for both.</p>
+          </details>
+
+          <details>
+            <summary>What counts as a revision round?</summary>
+            <p>A revision round is one list of changes that you send us after reviewing the site. Starter includes 1 round, Business includes 2 and Premium includes 3. Additional changes can be quoted separately.</p>
+          </details>
+
+          <details>
+            <summary>What do you need from me to get started?</summary>
+            <p>Your text and images, plus any logo or brand colors you already have. Delivery time (7, 14 or 21 days, depending on the package) starts on the day we receive your content.</p>
+          </details>
+
+          <details>
+            <summary>Will my site work on phones?</summary>
+            <p>Yes. Every package includes a responsive layout that adapts to phone, tablet and desktop screens. The Premium package also includes a cross-browser testing report.</p>
+          </details>
+
+          <details>
+            <summary>Can I add pages or features to a package?</summary>
+            <p>Yes. If you need more pages, or a mix of features from different packages, use the custom quote button above and tell us what you need.</p>
+          </details>
+        </div>
 
       </div>
     </section>
