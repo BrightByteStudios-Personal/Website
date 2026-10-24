@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b1315">
+  <title>Connect Four | Brightbyte Studio</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap">
+  <link rel="icon" href="imagess/logo.png">
+
+  <style>
+    /* ==========================================================
+       CONNECT FOUR SHOWCASE PAGE
+       Colors come straight from the app: charcoal background,
+       maroon buttons and plum brush strokes.
+       ========================================================== */
+    :root {
+      --bg: #1b1315;        /* page background (same as the app) */
+      --maroon: #52202e;    /* app buttons */
+      --maroon-hi: #6a2a3d; /* button when pressed or hovered */
+      --plum: #7e4a63;      /* brush strokes (top right) */
+      --rose: #7a4547;      /* brush strokes (bottom left) */
+      --cream: #fff3dc;     /* text */
+      --muted: #cdb9b4;     /* softer text */
+      --p1: #e0708f;        /* player 1 disc */
+      --p2: #f5dcaa;        /* player 2 disc */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--bg);
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Coming Soon', 'Segoe Print', 'Comic Sans MS', cursive;
+      background: var(--bg);
+      color: var(--cream);
+      line-height: 1.65;
+      overflow-x: hidden;
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--p2);
+      outline-offset: 3px;
+    }
+
+    /* Each section holds its own brush strokes behind the content */
+    section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .strokes {
+      position: absolute;
+      z-index: 0;
+      fill: none;
+      stroke-width: 24;
+      stroke-linecap: round;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 8vw, 2.8rem);
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 1.45rem;
+      margin-bottom: 6px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    /* App-style button */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 34px;
+      background: var(--maroon);
+      color: var(--cream);
+      border-radius: 18px;
+      font: inherit;
+      font-size: 1.15rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn:active {
+      background: var(--maroon-hi);
+      transform: scale(0.97);
+    }
+
+    @media (hover: hover) {
+      .btn:hover {
+        background: var(--maroon-hi);
+      }
+    }
+
+
+    /* ===== HERO: the board plays itself ===== */
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+    }
+
+    .hero .wrap {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      padding-top: 56px;
+      padding-bottom: 56px;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 14vw, 5.4rem);
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      margin-bottom: 18px;
+    }
+
+    .board {
+      width: min(88vw, 420px);
+      aspect-ratio: 7 / 6;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      padding: 10px;
+      margin-bottom: 26px;
+      background: var(--maroon);
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .cell {
+      position: relative;
+    }
+
+    /* The empty hole */
+    .cell::before {
+      content: "";
+      position: absolute;
+      inset: 9%;
+      border-radius: 50%;
+      background: var(--bg);
+      box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    /* A disc fills the whole cell so it can fall by whole cells */
+    .disc {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      animation: drop calc(0.3s + var(--n) * 0.07s) ease-in;
+    }
+
+    .disc::before {
+      content: "";
+      position: absolute;
+      inset: 9%;
+      border-radius: 50%;
+    }
+
+    .disc.p1::before {
+      background: radial-gradient(circle at 35% 30%, #f6a9bd, var(--p1) 62%);
+    }
+
+    .disc.p2::before {
+      background: radial-gradient(circle at 35% 30%, #fff1d2, var(--p2) 62%);
+    }
+
+    .disc.win::before {
+      animation: glow 0.8s ease-in-out infinite alternate;
+    }
+
+    .board.clearing .disc {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    @keyframes drop {
+      from { transform: translateY(calc(var(--n) * -100%)); }
+      70%  { transform: translateY(0); }
+      84%  { transform: translateY(-9%); }
+      to   { transform: translateY(0); }
+    }
+
+    @keyframes glow {
+      to { box-shadow: 0 0 0 3px var(--cream), 0 0 20px 6px rgba(255, 243, 220, 0.65); }
+    }
+
+
+    /* ===== GAME MODES (look like the buttons in the app) ===== */
+    .modes {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .mode {
+      background: var(--maroon);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .modes {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+
+    /* ===== HOW TO PLAY ===== */
+    .steps {
+      list-style: none;
+      margin-top: 22px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .steps li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .steps .num {
+      flex: none;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--p1);
+      color: var(--bg);
+      font-size: 1.15rem;
+    }
+
+    .steps p {
+      color: var(--cream);
+      font-size: 1.1rem;
+      padding-top: 6px;
+    }
+
+
+    /* ===== THE APP (phone frame) ===== */
+    .app .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .phone {
+      width: min(72vw, 270px);
+      margin-top: 26px;
+      padding: 9px;
+      background: #2c1d21;
+      border-radius: 36px;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.55);
+    }
+
+    .phone img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 28px;
+    }
+
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 30px 24px calc(34px + env(safe-area-inset-bottom));
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--cream);
+    }
+
+
+    /* Reduced motion: the board shows a finished game and stays still */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .disc,
+      .disc.win::before {
+        animation: none;
+      }
+
+      .btn {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <svg class="strokes" style="top:-30px; right:-40px; width:340px; height:360px" viewBox="0 0 340 360" stroke="#7e4a63" opacity="0.6" aria-hidden="true">
+      <path d="M330 30 C 230 10, 120 40, 60 110" />
+      <path d="M335 120 C 240 100, 150 140, 90 220" />
+      <path d="M338 215 C 250 200, 170 240, 130 320" />
+    </svg>
+    <svg class="strokes" style="bottom:-40px; left:-50px; width:340px; height:300px" viewBox="0 0 340 300" stroke="#7a4547" opacity="0.55" aria-hidden="true">
+      <path d="M20 260 C 70 150, 170 100, 300 120" />
+      <path d="M10 170 C 80 120, 150 150, 190 230" />
+      <path d="M70 290 C 150 220, 240 190, 330 210" />
+    </svg>
+
+    <div class="wrap">
+      <h1>Connect Four</h1>
+      <p class="tagline">Drop a disc. Line up four. Win.</p>
+
+      <div class="board" id="board" role="img" aria-label="A Connect Four board playing a game by itself"></div>
+
+      <a class="btn" href="#modes">See how it works</a>
+    </div>
+  </section>
+
+
+  <!-- ===== GAME MODES ===== -->
+  <section id="modes">
+    <div class="wrap">
+      <h2>Two ways to play</h2>
+      <p>Pick a mode from the menu and the game starts right away.</p>
+
+      <div class="modes">
+        <div class="mode">
+          <h3>Player Vs. Player</h3>
+          <p>Two people share one phone and take turns dropping discs.</p>
+        </div>
+        <div class="mode">
+          <h3>Player Vs. Bot</h3>
+          <p>No one to play with? Take on the computer by yourself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== HOW TO PLAY ===== -->
+  <section id="how">
+    <div class="wrap">
+      <h2>How to play</h2>
+
+      <ol class="steps">
+        <li>
+          <span class="num">1</span>
+          <p>Choose Player Vs. Player or Player Vs. Bot on the menu.</p>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <p>Tap a column to drop your disc. It falls to the lowest empty spot.</p>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <p>Be the first to line up four discs across, up and down, or diagonally.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ===== THE APP ===== -->
+  <section class="app">
+    <svg class="strokes" style="top:-20px; right:-60px; width:280px; height:260px" viewBox="0 0 280 260" stroke="#7e4a63" opacity="0.5" aria-hidden="true">
+      <path d="M270 30 C 190 20, 110 60, 70 130" />
+      <path d="M275 120 C 200 110, 140 150, 110 220" />
+    </svg>
+
+    <div class="wrap">
+      <h2>The app</h2>
+      <p>This is the menu you see when you open it.</p>
+
+      <div class="phone">
+        <img src="imagess/connect-four-menu.jpg" alt="The Connect Four menu with the buttons Player Vs. Player and Player Vs. Bot" width="600" height="1201" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p style="color:inherit; max-width:none">A Brightbyte Studio project &middot; <a href="portfolio.html">Back to portfolio</a></p>
+  </footer>
+
+
+  <script>
+    /* The hero board plays a full game by itself, then clears and starts again.
+       Player 1 (rose) wins when it can and blocks threats; player 2 (cream) only
+       takes a win when it sees one, so games end with a highlighted four. */
+    (function () {
+      const ROWS = 6, COLS = 7;
+      const boardEl = document.getElementById('board');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const cells = [];
+      for (let i = 0; i < ROWS * COLS; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        boardEl.appendChild(cell);
+        cells.push(cell);
+      }
+
+      let grid, turn;
+      const wait = ms => new Promise(done => setTimeout(done, ms));
+
+      function reset() {
+        grid = Array.from({ length: ROWS }, () => Array(COLS).fill(0));
+        turn = 1;
+        cells.forEach(cell => { cell.innerHTML = ''; });
+      }
+
+      // Lowest empty row in a column (-1 if the column is full)
+      function rowFor(c) {
+        for (let r = ROWS - 1; r >= 0; r--) if (!grid[r][c]) return r;
+        return -1;
+      }
+
+      // Returns the four-or-more line that passes through (r, c), or null
+      function winLine(r, c, p) {
+        for (const [dr, dc] of [[0, 1], [1, 0], [1, 1], [1, -1]]) {
+          const line = [[r, c]];
+          for (const s of [1, -1]) {
+            let rr = r + dr * s, cc = c + dc * s;
+            while (rr >= 0 && rr < ROWS && cc >= 0 && cc < COLS && grid[rr][cc] === p) {
+              line.push([rr, cc]);
+              rr += dr * s;
+              cc += dc * s;
+            }
+          }
+          if (line.length >= 4) return line;
+        }
+        return null;
+      }
+
+      function wouldWin(c, p) {
+        const r = rowFor(c);
+        if (r < 0) return false;
+        grid[r][c] = p;
+        const wins = !!winLine(r, c, p);
+        grid[r][c] = 0;
+        return wins;
+      }
+
+      function pick(open) {
+        const checks = turn === 1 ? [1, 2] : [2];   // win first, then (player 1 only) block
+        for (const p of checks) {
+          const move = open.find(c => wouldWin(c, p));
+          if (move !== undefined) return move;
+        }
+        const scores = open.map(c => 4 - Math.abs(c - 3) + Math.random() * 3);   // likes the middle
+        return open[scores.indexOf(Math.max(...scores))];
+      }
+
+      function step() {
+        const open = [...Array(COLS).keys()].filter(c => rowFor(c) >= 0);
+        if (!open.length) return 'full';
+
+        const c = pick(open);
+        const r = rowFor(c);
+        grid[r][c] = turn;
+
+        const disc = document.createElement('div');
+        disc.className = 'disc p' + turn;
+        disc.style.setProperty('--n', r + 1);   // how many cells it falls
+        cells[r * COLS + c].appendChild(disc);
+
+        const line = winLine(r, c, turn);
+        if (line) {
+          line.forEach(([rr, cc]) => cells[rr * COLS + cc].lastElementChild.classList.add('win'));
+          return 'win';
+        }
+        turn = 3 - turn;
+        return 'ok';
+      }
+
+      async function loop() {
+        for (;;) {
+          reset();
+          let result = 'ok';
+          while (result === 'ok') {
+            await wait(reduce ? 0 : 650);
+            result = step();
+          }
+          if (reduce) return;            // reduced motion: leave the finished board
+          await wait(2600);              // let the win glow for a moment
+          boardEl.classList.add('clearing');
+          await wait(600);
+          boardEl.classList.remove('clearing');
+        }
+      }
+
+      loop();
+    })();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kape Corner | Specialty Coffee &amp; Pastries in Taguig</title>
+  <meta name="description" content="Kape Corner is a cozy café in Taguig City serving locally roasted coffee, fresh pastries and light meals. See the menu, opening hours and reserve a table.">
+  <meta name="theme-color" content="#2a1810">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kape Corner | Specialty Coffee &amp; Pastries">
+  <meta property="og:description" content="Locally roasted coffee, fresh pastries and slow mornings in Taguig City.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Adds .js early so scroll animations never flash -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Kape Corner",
+    "email": "brightbytestudio09@gmail.com",
+    "servesCuisine": "Coffee, Pastries",
+    "priceRange": "PHP 85 - PHP 150",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Sample Street",
+      "addressLocality": "Taguig City",
+      "addressCountry": "PH"
+    },
+    "openingHours": ["Mo-Sa 07:00-21:00", "Su 08:00-18:00"]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#menu">Skip to menu</a>
+
+  <div class="demo">Demo site by Brightbyte Studio &middot; <a href="../../portfolio.html">Back to portfolio</a></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="top">
+    <div class="wrap bar">
+      <a class="brand" href="#top" aria-label="Kape Corner home">Kape<span>Corner</span></a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+
+      <nav id="nav" aria-label="Main">
+        <a href="#menu">Menu</a>
+        <a href="#story">Our story</a>
+        <a href="#visit">Visit</a>
+        <a class="btn btn-sm" href="#reserve">Reserve</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Specialty coffee &middot; Taguig City</p>
+          <h1>Slow mornings, <em>great coffee.</em></h1>
+          <p class="lead">Locally roasted beans, pastries baked every morning and a corner table with your name on it.</p>
+
+          <p><span id="status" class="badge" role="status">Checking hours&hellip;</span></p>
+
+          <div class="actions">
+            <a class="btn" href="#menu">See the menu</a>
+            <a class="btn btn-ghost" href="#reserve">Reserve a table</a>
+          </div>
+        </div>
+
+        <div class="art" aria-hidden="false">
+          <svg class="cup" viewBox="0 0 320 320" role="img" aria-label="Illustration of a steaming cup of coffee">
+            <ellipse cx="160" cy="278" rx="132" ry="22" fill="rgba(0,0,0,.25)"/>
+            <ellipse cx="160" cy="262" rx="124" ry="26" fill="#f1e3d0"/>
+            <ellipse cx="160" cy="256" rx="98" ry="18" fill="#e3caa6"/>
+            <path d="M246 140h10a30 30 0 0 1 0 60h-20" fill="none" stroke="#faf3e8" stroke-width="14" stroke-linecap="round"/>
+            <path d="M76 118h168v62c0 44-37 80-84 80s-84-36-84-80z" fill="#faf3e8"/>
+            <path d="M92 130h22v58c0 30 14 52 36 62-34-6-58-30-58-62z" fill="#fff" opacity=".55"/>
+            <ellipse cx="160" cy="118" rx="84" ry="15" fill="#f1e3d0"/>
+            <ellipse cx="160" cy="119" rx="72" ry="11" fill="#6b3a1f"/>
+            <path d="M160 114c-8-7-16-1-10 5l10 7 10-7c6-6-2-12-10-5z" fill="#e9b872" opacity=".9"/>
+            <g class="steam">
+              <path d="M128 96c-16-16 14-26 0-46"/>
+              <path d="M160 92c-16-16 14-26 0-46"/>
+              <path d="M192 96c-16-16 14-26 0-46"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PERKS ===== -->
+    <section class="perks-band">
+      <ul class="wrap perks">
+        <li class="reveal"><strong>Locally roasted</strong><span>Philippine-grown beans, roasted weekly.</span></li>
+        <li class="reveal"><strong>Baked fresh daily</strong><span>Pastries and bread out of the oven by 7 AM.</span></li>
+        <li class="reveal"><strong>Work-friendly</strong><span>Free Wi-Fi, outlets and plenty of quiet seats.</span></li>
+      </ul>
+    </section>
+
+    <!-- ===== MENU ===== -->
+    <section id="menu" class="section">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow dark">What we serve</p>
+          <h2>Our menu</h2>
+        </header>
+
+        <div class="filters" role="group" aria-label="Filter the menu">
+          <button type="button" class="chip" data-cat="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-cat="coffee" aria-pressed="false">Hot coffee</button>
+          <button type="button" class="chip" data-cat="cold" aria-pressed="false">Cold drinks</button>
+          <button type="button" class="chip" data-cat="bites" aria-pressed="false">Bites</button>
+        </div>
+
+        <div class="menu-grid">
+
+          <article class="item reveal" data-cat="coffee">
+            <div class="icon" aria-hidden="true">&#9749;</div>
+            <div class="info">
+              <h3>Americano</h3>
+              <p>Double shot of espresso with hot water.</p>
+            </div>
+            <span class="price">PHP 90</span>
+          </article>
+
+          <article class="item reveal" data-cat="coffee">
+            <div class="icon" aria-hidden="true">&#9749;</div>
+            <div class="info">
+              <h3>Cafe Latte</h3>
+              <p>Smooth espresso with steamed milk.</p>
+            </div>
+            <span class="price">PHP 120</span>
+          </article>
+
+          <article class="item reveal" data-cat="coffee">
+            <div class="icon" aria-hidden="true">&#9749;</div>
+            <div class="info">
+              <h3>Spanish Latte</h3>
+              <p>Espresso, milk and sweet condensed milk.</p>
+              <span class="tag">Bestseller</span>
+            </div>
+            <span class="price">PHP 140</span>
+          </article>
+
+          <article class="item reveal" data-cat="cold">
+            <div class="icon" aria-hidden="true">&#129482;</div>
+            <div class="info">
+              <h3>Iced Caramel Macchiato</h3>
+              <p>Vanilla, milk, espresso and caramel drizzle.</p>
+            </div>
+            <span class="price">PHP 150</span>
+          </article>
+
+          <article class="item reveal" data-cat="cold">
+            <div class="icon" aria-hidden="true">&#129482;</div>
+            <div class="info">
+              <h3>Cold Brew</h3>
+              <p>Steeped for 18 hours. Bold and smooth.</p>
+            </div>
+            <span class="price">PHP 130</span>
+          </article>
+
+          <article class="item reveal" data-cat="cold">
+            <div class="icon" aria-hidden="true">&#127861;</div>
+            <div class="info">
+              <h3>Iced Matcha Latte</h3>
+              <p>Ceremonial-grade matcha with fresh milk.</p>
+            </div>
+            <span class="price">PHP 140</span>
+          </article>
+
+          <article class="item reveal" data-cat="bites">
+            <div class="icon" aria-hidden="true">&#127856;</div>
+            <div class="info">
+              <h3>Ube Cheesecake</h3>
+              <p>Creamy slice on a buttery biscuit base.</p>
+              <span class="tag">Fan favorite</span>
+            </div>
+            <span class="price">PHP 110</span>
+          </article>
+
+          <article class="item reveal" data-cat="bites">
+            <div class="icon" aria-hidden="true">&#129360;</div>
+            <div class="info">
+              <h3>Butter Croissant</h3>
+              <p>Flaky, golden and baked every morning.</p>
+            </div>
+            <span class="price">PHP 95</span>
+          </article>
+
+          <article class="item reveal" data-cat="bites">
+            <div class="icon" aria-hidden="true">&#129386;</div>
+            <div class="info">
+              <h3>Chicken Pesto Sandwich</h3>
+              <p>Grilled chicken, basil pesto and greens.</p>
+            </div>
+            <span class="price">PHP 150</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STORY ===== -->
+    <section id="story" class="section alt">
+      <div class="wrap story">
+        <div class="reveal">
+          <p class="eyebrow dark">Our story</p>
+          <h2>A small corner with a big love for coffee</h2>
+          <p>Kape Corner started as a tiny coffee cart with one grinder and a lot of heart. Today we are a neighborhood café where students, freelancers and families slow down, catch up and enjoy a good cup.</p>
+          <p>We work with Philippine farms, roast in small batches and bake what we serve, because good coffee deserves good company.</p>
+        </div>
+
+        <div class="stats reveal">
+          <div><strong>2019</strong><span>Year we opened</span></div>
+          <div><strong>100%</strong><span>Philippine-grown beans</span></div>
+          <div><strong>5,000+</strong><span>Cups served monthly</span></div>
+          <div><strong>4.9</strong><span>Average guest rating</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VISIT ===== -->
+    <section id="visit" class="section">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow dark">Come say hi</p>
+          <h2>Visit us</h2>
+        </header>
+
+        <div class="visit-grid">
+          <div class="panel reveal">
+            <h3>Opening hours</h3>
+            <table class="hours">
+              <tbody>
+                <tr data-day="1"><th scope="row">Monday</th><td>7:00 AM &ndash; 9:00 PM</td></tr>
+                <tr data-day="2"><th scope="row">Tuesday</th><td>7:00 AM &ndash; 9:00 PM</td></tr>
+                <tr data-day="3"><th scope="row">Wednesday</th><td>7:00 AM &ndash; 9:00 PM</td></tr>
+                <tr data-day="4"><th scope="row">Thursday</th><td>7:00 AM &ndash; 9:00 PM</td></tr>
+                <tr data-day="5"><th scope="row">Friday</th><td>7:00 AM &ndash; 9:00 PM</td></tr>
+                <tr data-day="6"><th scope="row">Saturday</th><td>7:00 AM &ndash; 9:00 PM</td></tr>
+                <tr data-day="0"><th scope="row">Sunday</th><td>8:00 AM &ndash; 6:00 PM</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel reveal">
+            <h3>Find us</h3>
+            <address>
+              123 Sample Street<br>
+              Taguig City, Metro Manila
+            </address>
+            <p>Questions? Email us at<br>
+              <a href="mailto:brightbytestudio09@gmail.com">brightbytestudio09@gmail.com</a>
+            </p>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Taguig+City" target="_blank" rel="noopener">Get directions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RESERVE ===== -->
+    <section id="reserve" class="section dark">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Save your seat</p>
+          <h2>Reserve a table</h2>
+        </header>
+
+        <form id="reserve-form" class="card-form reveal" novalidate>
+          <!-- Spam trap: real people never see or tick this -->
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="row2">
+            <div>
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" autocomplete="name">
+              <div class="err" id="e-name"></div>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email">
+              <div class="err" id="e-email"></div>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div>
+              <label for="date">Date</label>
+              <input type="date" id="date" name="date">
+              <div class="err" id="e-date"></div>
+            </div>
+            <div>
+              <label for="guests">Guests</label>
+              <select id="guests" name="guests">
+                <option>1 guest</option>
+                <option selected>2 guests</option>
+                <option>3 guests</option>
+                <option>4 guests</option>
+                <option>5 to 8 guests</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="msg">Notes (optional)</label>
+          <textarea id="msg" name="msg" rows="3" placeholder="Birthday, allergies, preferred time&hellip;"></textarea>
+
+          <button class="btn btn-block" type="submit">Request reservation</button>
+          <p id="form-result" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <p>&copy; 2026 Kape Corner. Website by Brightbyte Studio.</p>
+      <p><a href="mailto:brightbytestudio09@gmail.com">brightbytestudio09@gmail.com</a> &middot; <a href="#top">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

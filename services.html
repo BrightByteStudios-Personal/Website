@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services | Brightbyte Studio</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&display=swap">
+  <link rel="icon" href="imagess/logo.png">
+  <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+
+  <!-- ===== HEADER + NAVIGATION ===== -->
+  <header>
+    <nav>
+      <a class="logo" href="index.html">
+        <img class="logo-img" src="imagess/logo.png" alt="Brightbyte logo">
+        Bright<span>byte</span>
+      </a>
+
+      <button id="menu" aria-label="Menu">Menu</button>
+
+      <a class="link" href="index.html">Home</a>
+      <a class="link" href="team.html">About &amp; Team</a>
+      <a class="link active" href="services.html">Services</a>
+      <a class="link" href="portfolio.html">Portfolio</a>
+      <a class="link" href="contact.html">Contact Us</a>
+
+      <button id="theme" aria-label="Toggle dark mode">Dark/Light</button>
+    </nav>
+  </header>
+
+
+  <main>
+    <section>
+      <div class="wrap">
+
+        <h1>Services</h1>
+
+        <!-- ===== SERVICE CARDS ===== -->
+        <div class="grid">
+          <div class="card">
+            <h3>Web design</h3>
+            <p>Layouts, color and type for your brand.</p>
+          </div>
+
+          <div class="card">
+            <h3>Development</h3>
+            <p>Multi-page sites in HTML, CSS and JavaScript.</p>
+          </div>
+
+          <div class="card">
+            <h3>Testing</h3>
+            <p>Cross-browser and mobile checks.</p>
+          </div>
+        </div>
+
+
+        <!-- ===== PRICING TABLE =====
+             id="packages" lets other pages link straight here
+             (services.html#packages) -->
+        <h2 id="packages" style="margin-top:48px">Packages</h2>
+
+        <div class="scroll">
+          <table>
+            <caption style="text-align:left;padding:8px 0">Prices are placeholders. Edit as needed.</caption>
+
+            <thead>
+              <tr>
+                <th>Package</th>
+                <th>Pages</th>
+                <th>Includes</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+
+            <!-- To add a package, copy one <tr> row and change the text -->
+            <tbody>
+              <tr>
+                <td>Starter</td>
+                <td>1 to 3</td>
+                <td>Responsive layout, contact form</td>
+                <td>PHP 5,000</td>
+              </tr>
+
+              <tr>
+                <td>Business</td>
+                <td>Up to 6</td>
+                <td>Starter + gallery, pricing table, SEO basics</td>
+                <td>PHP 12,000</td>
+              </tr>
+
+              <tr>
+                <td>Premium</td>
+                <td>Up to 10</td>
+                <td>Business + animations, dark mode, testing report</td>
+                <td>PHP 20,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="margin-top:20px">
+          <a class="btn" href="contact.html">Request a quote</a>
+        </p>
+
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <p style="color:inherit">&copy; 2026 Brightbyte Studio. Class project (Group #4).</p>
+
+      <p style="color:inherit">
+          <a href="https://github.com/BrightByteStudios-Personal?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+       |
+        <a href="https://www.facebook.com/share/1DMAE9hGEW/" target="_blank" rel="noopener">Facebook</a> |
+        <a href="mailto:brightbytestudio09@gmail.com">brightbytestudio09@gmail.com</a> 
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

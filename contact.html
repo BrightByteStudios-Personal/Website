@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Brightbyte Studio</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&display=swap">
+  <link rel="icon" href="imagess/logo.png">
+  <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+
+  <!-- ===== HEADER + NAVIGATION ===== -->
+  <header>
+    <nav>
+      <a class="logo" href="index.html">
+        <img class="logo-img" src="imagess/logo.png" alt="Brightbyte logo">
+        Bright<span>byte</span>
+      </a>
+
+      <button id="menu" aria-label="Menu">Menu</button>
+
+      <a class="link" href="index.html">Home</a>
+      <a class="link" href="team.html">About &amp; Team</a>
+      <a class="link" href="services.html">Services</a>
+      <a class="link" href="portfolio.html">Portfolio</a>
+      <a class="link active" href="contact.html">Contact Us</a>
+
+      <button id="theme" aria-label="Toggle dark mode">Dark/Light</button>
+    </nav>
+  </header>
+
+
+  <main>
+    <section>
+      <div class="wrap">
+
+        <h1>Get a quote</h1>
+        <p>Tell us about your project. We reply within two days.</p>
+
+        <!-- ===== QUOTE FORM =====
+             script.js checks the fields when the form is sent.
+             Each <div class="err"> is where an error message appears. -->
+        <form id="quote" novalidate>
+
+          <!-- Text input -->
+          <div>
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name">
+            <div class="err" id="e-name"></div>
+          </div>
+
+          <!-- Email input -->
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <div class="err" id="e-email"></div>
+          </div>
+
+          <!-- Drop-down menu -->
+          <div>
+            <label for="type">Project type</label>
+            <select id="type" name="type">
+              <option value="">Select one</option>
+              <option>Business website</option>
+              <option>Online portfolio</option>
+              <option>School or organization site</option>
+              <option>Landing page</option>
+            </select>
+            <div class="err" id="e-type"></div>
+          </div>
+
+          <!-- Checkboxes: pick any number -->
+          <fieldset>
+            <legend>Services needed</legend>
+
+            <label><input type="checkbox" name="services" value="Design"> Design</label>
+            <label><input type="checkbox" name="services" value="Development"> Development</label>
+            <label><input type="checkbox" name="services" value="Testing"> Testing</label>
+          </fieldset>
+
+          <!-- Radio buttons: pick only one (same name="budget") -->
+          <fieldset>
+            <legend>Budget range</legend>
+
+            <label><input type="radio" name="budget" value="Under PHP 5,000"> Under 5k</label>
+            <label><input type="radio" name="budget" value="PHP 5,000 to 15,000"> 5k to 15k</label>
+            <label><input type="radio" name="budget" value="Over PHP 15,000"> Over 15k</label>
+
+            <div class="err" id="e-budget"></div>
+          </fieldset>
+
+          <!-- Message box (optional) -->
+          <div>
+            <label for="msg">Message</label>
+            <textarea id="msg" name="msg" rows="4"></textarea>
+          </div>
+
+          <button class="btn" type="submit">Send quote request</button>
+        </form>
+
+        <!-- Confirmation message appears here after sending -->
+        <div id="result" role="status"></div>
+
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <p style="color:inherit">&copy; 2026 Brightbyte Studio. Class project (Group #4).</p>
+
+      <p style="color:inherit">
+       
+       <a href="https://github.com/BrightByteStudios-Personal?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+       |
+        <a href="https://www.facebook.com/share/1DMAE9hGEW/" target="_blank" rel="noopener">Facebook</a> |
+        <a href="mailto:brightbytestudio09@gmail.com">brightbytestudio09@gmail.com</a> 
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio | Brightbyte Studio</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&display=swap">
+  <link rel="icon" href="imagess/logo.png">
+  <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+
+  <!-- ===== HEADER + NAVIGATION ===== -->
+  <header>
+    <nav>
+      <a class="logo" href="index.html">
+        <img class="logo-img" src="imagess/logo.png" alt="Brightbyte logo">
+        Bright<span>byte</span>
+      </a>
+
+      <button id="menu" aria-label="Menu">Menu</button>
+
+      <a class="link" href="index.html">Home</a>
+      <a class="link" href="team.html">About &amp; Team</a>
+      <a class="link" href="services.html">Services</a>
+      <a class="link active" href="portfolio.html">Portfolio</a>
+      <a class="link" href="contact.html">Contact Us</a>
+
+      <button id="theme" aria-label="Toggle dark mode">Dark/Light</button>
+    </nav>
+  </header>
+
+
+  <main>
+    <section>
+      <div class="wrap">
+
+        <h1>Portfolio</h1>
+        <p>Websites we have built and designed for local shops, schools and startups. Tap any project to open it.</p>
+
+        <!-- Jump links to the sections below -->
+        <div class="jump">
+          <a href="#featured">Featured work</a>
+          <a href="#examples">Example works</a>
+        </div>
+
+
+        <!-- ===== FEATURED WORK =====
+             HOW TO ADD YOUR OWN:
+             1. Save the screenshot in the imagess folder (about 800 x 500, under 150 KB).
+             2. Copy one <a class="project"> block below.
+             3. Change the link, image file name, alt text, title, text and tags.
+             If the image file is missing, the colored label shows instead. -->
+        <h2 id="featured">Featured work</h2>
+
+        <div class="projects">
+
+          <a class="project" href="https://YOUR-TUNNEL.trycloudflare.com" target="_blank" rel="noopener">
+            <div class="thumb" data-label="Featured project 1">
+              <img src="imagess/featured1.jpg" alt="Screenshot of Featured project 1" width="800" height="500" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3>TravelLog</h3>
+              <p>A web app for recording your trips, with the places you visited, the dates and your notes saved in one place.</p>
+              <ul class="tags"><li>Website</li><li>Design</li></ul>
+              <span class="project-cta">View live</span>
+            </div>
+          </a>
+
+                    <a class="project" href="connect-four.html">
+            <div class="thumb" data-label="Connect Four">
+              <img src="imagess/featured2.jpg" alt="Menu screen of the Connect Four app" width="800" height="500" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3>Connect Four</h3>
+              <p>A two-player mobile game with a Player Vs. Player mode and a Player Vs. Bot mode.</p>
+              <ul class="tags"><li>Mobile app</li><li>Game</li></ul>
+              <span class="project-cta">View project</span>
+            </div>
+          </a>
+
+        </div>
+
+
+        <!-- ===== EXAMPLE WORKS ===== -->
+        <h2 id="examples" style="margin-top:48px">Example works</h2>
+        <p>Demo sites we built to show what we can do for local shops, schools and startups.</p>
+
+        <div class="projects">
+
+          <a class="project" href="exampleworks/kape-corner/index.html">
+            <div class="thumb cafe" data-label="Kape Corner">
+              <img src="imagess/kape-corner.jpg" alt="Screenshot of the Kape Corner café website" width="800" height="500" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3>Kape Corner</h3>
+              <p>Café site with a filterable menu, live open/closed status and table reservations.</p>
+              <ul class="tags"><li>Café</li><li>Reservations</li><li>Menu</li></ul>
+              <span class="project-cta">View demo</span>
+            </div>
+          </a>
+
+          <a class="project" href="exampleworks/sunrise-elementary/index.html">
+            <div class="thumb school" data-label="Sunrise Elementary">
+              <img src="imagess/sunrise-elementary.jpg" alt="Screenshot of the Sunrise Elementary school website" width="800" height="500" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3>Sunrise Elementary</h3>
+              <p>School site with announcements, grade schedules, enrollment steps and an inquiry form.</p>
+              <ul class="tags"><li>School</li><li>Schedule</li><li>Inquiry form</li></ul>
+              <span class="project-cta">View demo</span>
+            </div>
+          </a>
+
+          <a class="project" href="exampleworks/fresh-fit-gym/index.html">
+            <div class="thumb gym" data-label="Fresh Fit Gym">
+              <img src="imagess/fresh-fit-gym.jpg" alt="Screenshot of the Fresh Fit Gym website" width="800" height="500" loading="lazy">
+            </div>
+            <div class="project-body">
+              <h3>Fresh Fit Gym</h3>
+              <p>Landing page with monthly and yearly pricing, class schedule and a membership form.</p>
+              <ul class="tags"><li>Fitness</li><li>Pricing</li><li>Classes</li></ul>
+              <span class="project-cta">View demo</span>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <p style="color:inherit">&copy; 2026 Brightbyte Studio. Class project (Group #4).</p>
+
+      <p style="color:inherit">
+         <a href="https://github.com/BrightByteStudios-Personal?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+       |
+        <a href="https://www.facebook.com/share/1DMAE9hGEW/" target="_blank" rel="noopener">Facebook</a> |
+        <a href="mailto:brightbytestudio09@gmail.com">brightbytestudio09@gmail.com</a> 
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

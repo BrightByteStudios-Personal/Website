@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Brightbyte Studio</title>
+
+  <!-- Google font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&display=swap">
+
+  <!-- Our stylesheet -->
+  <link rel="icon" href="imagess/logo.png">
+  <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+
+  <!-- ===== HEADER + NAVIGATION (same on every page) ===== -->
+  <header>
+    <nav>
+      <a class="logo" href="index.html">
+        <img class="logo-img" src="imagess/logo.png" alt="Brightbyte logo">
+        Bright<span>byte</span>
+      </a>
+
+      <button id="menu" aria-label="Menu">Menu</button>
+
+      <!-- "active" marks the current page. Move it when copying this nav to another page -->
+      <a class="link active" href="index.html">Home</a>
+      <a class="link" href="team.html">About &amp; Team</a>
+      <a class="link" href="services.html">Services</a>
+      <a class="link" href="portfolio.html">Portfolio</a>
+      <a class="link" href="contact.html">Contact Us</a>
+
+      <button id="theme" aria-label="Toggle dark mode">Dark/Light</button>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- ===== HERO: main banner ===== -->
+    <section class="hero">
+      <div class="wrap">
+        <h1>Websites that make small businesses <em>easy to find</em>.</h1>
+
+        <p>We build fast, clean, mobile-friendly sites for local shops, schools and startups.</p>
+
+        <a class="btn" href="contact.html">Get a quote</a>
+        <a class="btn alt" href="#about">Why us</a>   <!-- jumps down to the About section -->
+      </div>
+    </section>
+
+
+    <!-- ===== ABOUT THE AGENCY ===== -->
+    <section id="about">
+      <div class="wrap">
+        <h2>About the agency</h2>
+
+      <p>We build fast, responsive, and custom-built websites for entrepreneurs, local businesses, schools, and startups. From concept to launch, we focus on sleek design, reliable performance, and an effortless user experience.</p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Design</h3>
+            <p>Layouts that are clear on phones and desktops.</p>
+          </div>
+
+          <div class="card">
+            <h3>Build</h3>
+            <p>Hand-coded HTML, CSS and JavaScript. No bloat.</p>
+          </div>
+
+          <div class="card">
+            <h3>Test</h3>
+            <p>Every link, form and page checked before launch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== CALL TO ACTION ===== -->
+    <section id="cta">
+      <div class="wrap card">
+        <h2>Ready to start?</h2>
+
+        <p>See our <a href="services.html#packages">packages</a> or <a href="portfolio.html">past work</a>.</p>
+
+        <a class="btn" href="contact.html">Hire us</a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ===== FOOTER (same on every page) ===== -->
+  <footer>
+    <div class="wrap">
+      <p style="color:inherit">&copy; 2026 Brightbyte Studio. Class project (Group #4).</p>
+
+      <!-- target="_blank" opens the link in a new tab -->
+      <p style="color:inherit">
+         <a href="https://github.com/BrightByteStudios-Personal?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+       |
+        <a href="https://www.facebook.com/share/1DMAE9hGEW/" target="_blank" rel="noopener">Facebook</a> |
+        <a href="mailto:brightbytestudio09@gmail.com">brightbytestudio09@gmail.com</a> 
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
