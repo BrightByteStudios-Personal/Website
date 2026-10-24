@@ -309,9 +309,10 @@ document.querySelectorAll('.project').forEach(card => {
 
 })();
 /* ----------------------------------------------------------
-   8. TEAM CARDS SLIDE IN
-   Each card fades up when it scrolls into view, one after
-   another across the row. Skipped if reduced motion is on.
+   8. TEAM CARDS APPEAR ONE BY ONE
+   Cards that scroll into view wait in a line and are shown one at
+   a time, a short pause apart (in page order), instead of all at
+   once. Skipped if reduced motion is on.
    ---------------------------------------------------------- */
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -319,17 +320,31 @@ document.querySelectorAll('.project').forEach(card => {
 
   if (reduce || !cards.length || !('IntersectionObserver' in window)) return;
 
+  const GAP = 300;       // milliseconds between one card and the next
+  const queue = [];      // cards waiting for their turn
+  let busy = false;
+
+  function showNext() {
+    const card = queue.shift();
+    if (!card) { busy = false; return; }
+    busy = true;
+    card.classList.add('fx-in');
+    setTimeout(showNext, GAP);
+  }
+
   const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('fx-in');
-      obs.unobserve(entry.target);
-    });
+    entries
+      .filter(entry => entry.isIntersecting)
+      .map(entry => entry.target)
+      .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1)
+      .forEach(card => {
+        obs.unobserve(card);
+        queue.push(card);
+      });
+    if (!busy) showNext();
   }, { threshold: 0.15 });
 
   cards.forEach(card => {
-    const row = [...card.parentElement.children].indexOf(card) % 3;   // 0, 1, 2 across a row
-    card.style.setProperty('--i', row);
     card.classList.add('fx');
     io.observe(card);
   });
